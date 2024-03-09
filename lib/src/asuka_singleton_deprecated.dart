@@ -10,8 +10,7 @@ import 'package:flutter/material.dart';
 ///
 /// It is an error to specify both `above` and `below`.
 @Deprecated('Use `Asuka.addOverlay` instead')
-void addOverlay(OverlayEntry entry,
-    {OverlayEntry? below, OverlayEntry? above, bool callback = false}) {
+void addOverlay(OverlayEntry entry, {OverlayEntry? below, OverlayEntry? above, bool callback = false}) {
   Asuka.addOverlay(entry, above: above, below: below, callback: callback);
 }
 
@@ -25,8 +24,7 @@ void addOverlay(OverlayEntry entry,
 @Deprecated('Use `Asuka.ainsertAllOverlay` instead')
 void ainsertAllOverlay(Iterable<OverlayEntry> entries,
     {OverlayEntry? below, OverlayEntry? above, bool callback = false}) {
-  Asuka.ainsertAllOverlay(entries,
-      above: above, below: below, callback: callback);
+  Asuka.ainsertAllOverlay(entries, above: above, below: below, callback: callback);
 }
 
 /// Shows a [SnackBar] at the bottom of the scaffold.
@@ -45,9 +43,9 @@ void ainsertAllOverlay(Iterable<OverlayEntry> entries,
 ///
 /// See [Scaffold.of] for information about how to obtain the [ScaffoldState].
 @Deprecated('Use `Asuka.showSnackBar` instead')
-material.ScaffoldFeatureController<material.SnackBar,
-        material.SnackBarClosedReason>
-    showSnackBar(material.SnackBar snackbar, {bool callback = false}) {
+material.ScaffoldFeatureController<material.SnackBar, material.SnackBarClosedReason> showSnackBar(
+    material.SnackBar snackbar,
+    {bool callback = false}) {
   return Asuka.showSnackBar(snackbar, callback: callback);
 }
 
@@ -57,9 +55,7 @@ material.ScaffoldFeatureController<material.SnackBar,
 /// any queued snack bars, they begin their entrance animation immediately.
 @Deprecated('Use `Asuka.removeCurrentSnackBar` instead')
 void removeCurrentSnackBar(
-    {material.SnackBarClosedReason reason =
-        material.SnackBarClosedReason.remove,
-    bool callback = false}) {
+    {material.SnackBarClosedReason reason = material.SnackBarClosedReason.remove, bool callback = false}) {
   return Asuka.removeCurrentSnackBar(reason: reason, callback: callback);
 }
 
@@ -68,9 +64,7 @@ void removeCurrentSnackBar(
 /// The closed completer is called after the animation is complete.
 @Deprecated('Use `Asuka.hideCurrentSnackBar` instead')
 void hideCurrentSnackBar(
-    {material.SnackBarClosedReason reason =
-        material.SnackBarClosedReason.remove,
-    bool callback = false}) {
+    {material.SnackBarClosedReason reason = material.SnackBarClosedReason.remove, bool callback = false}) {
   return Asuka.hideCurrentSnackBar(reason: reason, callback: callback);
 }
 
@@ -101,13 +95,14 @@ void hideCurrentSnackBar(
 /// of the app. Modal bottom sheets can be created and displayed with the
 /// [showModalBottomSheet] function.
 @Deprecated('Use `Asuka.showBottomSheet` instead')
-material.PersistentBottomSheetController<T> showBottomSheet<T>(
-    Widget Function(BuildContext) builder,
-    {Color? backgroundColor,
-    double? elevation,
-    ShapeBorder? shape,
-    Clip? clipBehavior,
-    bool callback = false}) {
+material.PersistentBottomSheetController showBottomSheet(
+  Widget Function(BuildContext) builder, {
+  Color? backgroundColor,
+  double? elevation,
+  ShapeBorder? shape,
+  Clip? clipBehavior,
+  bool callback = false,
+}) {
   return Asuka.showBottomSheet(
     builder,
     backgroundColor: backgroundColor,

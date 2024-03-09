@@ -12,8 +12,7 @@ const Asuka = _Asuka._();
 class _Asuka {
   const _Asuka._();
   static void _checkBuilderIsInMaterialApp() {
-    assert(_keyScaff.currentState != null,
-        """Add asuka.builder in your MaterialApp;
+    assert(_keyScaff.currentState != null, """Add asuka.builder in your MaterialApp;
 
        return MaterialApp(
          builder: asuka.builder,
@@ -22,8 +21,7 @@ class _Asuka {
   }
 
   static void _checkAndInvokeCallback() {
-    assert(_callback != null,
-        "Provide a callback function in the app main file for invoking it.");
+    assert(_callback != null, "Provide a callback function in the app main file for invoking it.");
 
     _callback!();
   }
@@ -35,8 +33,7 @@ class _Asuka {
   /// Otherwise, the entry is inserted on top.
   ///
   /// It is an error to specify both `above` and `below`.
-  void addOverlay(OverlayEntry entry,
-      {OverlayEntry? below, OverlayEntry? above, bool callback = false}) {
+  void addOverlay(OverlayEntry entry, {OverlayEntry? below, OverlayEntry? above, bool callback = false}) {
     _checkBuilderIsInMaterialApp();
     if (callback) _checkAndInvokeCallback();
     if (_keyScaff.currentContext != null) {
@@ -60,8 +57,7 @@ class _Asuka {
   }) {
     _checkBuilderIsInMaterialApp();
     if (callback) _checkAndInvokeCallback();
-    Overlay.of(_keyScaff.currentContext!)
-        .insertAll(entries, below: below, above: above);
+    Overlay.of(_keyScaff.currentContext!).insertAll(entries, below: below, above: above);
   }
 
   ///Asuka showSnackBar
@@ -93,16 +89,14 @@ class _Asuka {
   ///
   ///This code generates an **ElevatedButton**, when pressed, it calls **controller.onClickSnackbar**
   ///
-  material.ScaffoldFeatureController<material.SnackBar,
-      material.SnackBarClosedReason> showSnackBar(
+  material.ScaffoldFeatureController<material.SnackBar, material.SnackBarClosedReason> showSnackBar(
     material.SnackBar snackbar, {
     bool callback = false,
   }) {
     _checkBuilderIsInMaterialApp();
     if (callback) _checkAndInvokeCallback();
 
-    return ScaffoldMessenger.of(_keyScaff.currentState!.context)
-        .showSnackBar(snackbar);
+    return ScaffoldMessenger.of(_keyScaff.currentState!.context).showSnackBar(snackbar);
   }
 
   /// Removes the current [SnackBar] (if any) immediately.
@@ -115,8 +109,7 @@ class _Asuka {
   }) {
     _checkBuilderIsInMaterialApp();
     if (callback) _checkAndInvokeCallback();
-    return ScaffoldMessenger.of(_keyScaff.currentState!.context)
-        .removeCurrentSnackBar(reason: reason);
+    return ScaffoldMessenger.of(_keyScaff.currentState!.context).removeCurrentSnackBar(reason: reason);
   }
 
   /// Removes the current [SnackBar] by running its normal exit animation.
@@ -129,8 +122,7 @@ class _Asuka {
     _checkBuilderIsInMaterialApp();
     if (callback) _checkAndInvokeCallback();
     //return _keyScaff.currentState!.hideCurrentSnackBar(reason: reason);
-    return ScaffoldMessenger.of(_keyScaff.currentState!.context)
-        .hideCurrentSnackBar(reason: reason);
+    return ScaffoldMessenger.of(_keyScaff.currentState!.context).hideCurrentSnackBar(reason: reason);
   }
 
   ///Asuka showBottomSheet
@@ -183,13 +175,8 @@ class _Asuka {
   ///
   ///This code generates an **ElevatedButton**, when pressed, it calls **controller.onClickBottomSheet()**
 
-  material.PersistentBottomSheetController<T> showBottomSheet<T>(
-      Widget Function(BuildContext) builder,
-      {Color? backgroundColor,
-      double? elevation,
-      ShapeBorder? shape,
-      Clip? clipBehavior,
-      bool callback = false}) {
+  material.PersistentBottomSheetController showBottomSheet(Widget Function(BuildContext) builder,
+      {Color? backgroundColor, double? elevation, ShapeBorder? shape, Clip? clipBehavior, bool callback = false}) {
     _checkBuilderIsInMaterialApp();
     if (callback) _checkAndInvokeCallback();
     return _keyScaff.currentState!.showBottomSheet(
@@ -470,16 +457,14 @@ class _Asuka {
     );
   }
 
-  material.ScaffoldFeatureController<material.MaterialBanner,
-      material.MaterialBannerClosedReason> showMaterialBanner(
+  material.ScaffoldFeatureController<material.MaterialBanner, material.MaterialBannerClosedReason> showMaterialBanner(
     material.MaterialBanner materialBanner, {
     bool callback = false,
   }) {
     _checkBuilderIsInMaterialApp();
     if (callback) _checkAndInvokeCallback();
 
-    return ScaffoldMessenger.of(_keyScaff.currentState!.context)
-        .showMaterialBanner(materialBanner);
+    return ScaffoldMessenger.of(_keyScaff.currentState!.context).showMaterialBanner(materialBanner);
   }
 
   /// Removes the current [SnackBar] (if any) immediately.
@@ -487,29 +472,25 @@ class _Asuka {
   /// The removed snack bar does not run its normal exit animation. If there are
   /// any queued snack bars, they begin their entrance animation immediately.
   void removeCurrentMaterialBanner({
-    material.MaterialBannerClosedReason reason =
-        material.MaterialBannerClosedReason.remove,
+    material.MaterialBannerClosedReason reason = material.MaterialBannerClosedReason.remove,
     bool callback = false,
   }) {
     _checkBuilderIsInMaterialApp();
     if (callback) _checkAndInvokeCallback();
-    return ScaffoldMessenger.of(_keyScaff.currentState!.context)
-        .removeCurrentMaterialBanner(reason: reason);
+    return ScaffoldMessenger.of(_keyScaff.currentState!.context).removeCurrentMaterialBanner(reason: reason);
   }
 
   /// Removes the current [SnackBar] by running its normal exit animation.
   ///
   /// The closed completer is called after the animation is complete.
   void hideCurrentMaterialBanner({
-    material.MaterialBannerClosedReason reason =
-        material.MaterialBannerClosedReason.remove,
+    material.MaterialBannerClosedReason reason = material.MaterialBannerClosedReason.remove,
     bool callback = false,
   }) {
     _checkBuilderIsInMaterialApp();
     if (callback) _checkAndInvokeCallback();
     //return _keyScaff.currentState!.hideCurrentSnackBar(reason: reason);
-    return ScaffoldMessenger.of(_keyScaff.currentState!.context)
-        .hideCurrentMaterialBanner(reason: reason);
+    return ScaffoldMessenger.of(_keyScaff.currentState!.context).hideCurrentMaterialBanner(reason: reason);
   }
 
   /// init Asuka: Add in your MaterialApp
@@ -539,9 +520,8 @@ class _Asuka {
     );
   }
 
-  material.HeroController get asukaHeroController => HeroController(
-      createRectTween: (begin, end) =>
-          MaterialRectCenterArcTween(begin: begin, end: end));
+  material.HeroController get asukaHeroController =>
+      HeroController(createRectTween: (begin, end) => MaterialRectCenterArcTween(begin: begin, end: end));
 }
 
 class _BuildPage extends StatefulWidget {
